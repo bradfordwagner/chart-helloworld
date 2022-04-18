@@ -1,25 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "vault.fullname" . }}
+  name: {{ include "fullname" . }}
   labels:
-    {{- include "vault.labels" . | nindent 4 }}
+    {{- include "labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      {{- include "vault.selectorLabels" . | nindent 6 }}
+      {{- include "selector_labels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "vault.selectorLabels" . | nindent 8 }}
+        {{- include "selector_labels" . | nindent 8 }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+        - name: main
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 8080
-              name: http
+          command:
+            - /bin/bash
+            - -lc
+            - |
+              echo hello world
+              sleep 10000000

@@ -5,5 +5,5 @@
 replicas: 1
 
 image:
-  repository: paulbouwer/hello-kubernetes
-  tag: 1.8
+  repository: quay.io/bradfordwagner/base
+  tag: 2.2.2-debian_bullseye
