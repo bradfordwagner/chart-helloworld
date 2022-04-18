@@ -16,8 +16,9 @@ spec:
     spec:
       containers:
         - name: main
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
+          resources: {{ .Values.resources | toYaml | nindent 11 }}
           command:
             - /bin/bash
             - -lc
