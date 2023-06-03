@@ -29,7 +29,7 @@ spec:
             value: https://github.com/bradfordwagner/gh-template-chart.git
           - name: git_version
             value: "{{ inputs.parameters.git_version }}"
-          - name: image
+          - name: helm_image
             value: quay.io/bradfordwagner/helm:1.0.0
           - name: csi_class
             value: acr-sandbox
