@@ -30,7 +30,7 @@ spec:
           - name: git_version
             value: "{{ inputs.parameters.git_version }}"
           - name: helm_image
-            value: quay.io/bradfordwagner/helm:1.0.0
+            value: quay.io/bradfordwagner/helm:1.0.0-debian_bullseye
           - name: csi_class
             value: acr-sandbox
         templateRef:
