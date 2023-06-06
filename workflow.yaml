@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: gh-template-chart-
+  generateName: gh-template-helm-chart-
 spec:
   podGC:
     strategy: OnPodSuccess # delete pods when workflow is successful
