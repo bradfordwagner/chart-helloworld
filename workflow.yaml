@@ -3,8 +3,8 @@ kind: Workflow
 metadata:
   generateName: gh-template-helm-chart-
 spec:
-  podGC:
-    strategy: OnPodSuccess # delete pods when workflow is successful
+  ttlStrategy:
+    secondsAfterCompletion: 3600 # delete workflow after 1 hour
   entrypoint: main
   arguments:
     parameters:
