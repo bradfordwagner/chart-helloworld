@@ -30,11 +30,15 @@ spec:
           - name: git_version
             value: "{{ inputs.parameters.git_version }}"
           - name: helm_image
-            value: quay.io/bradfordwagner/helm:1.0.0-debian_bullseye
+            value: quay.io/bradfordwagner/helm:1.1.1-debian_bullseye
+          - name: helm_repo_add
+            value: "{{ item.helm_repo_add }}"
           - name: csi_class
             value: acr-prod
             # value: acr-sandbox
         templateRef:
           name: flavor-helm-template
           template: main
+        withItems:
+          - helm_repo_add: []
 
