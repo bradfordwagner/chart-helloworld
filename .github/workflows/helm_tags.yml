@@ -23,7 +23,8 @@ jobs:
         with:
            version: 'v3.14.3'
       - name: task=tags
-        run: task -t ./taskfiles/tasks/helm.yml- name: chart_releaser
+        run: task -t ./taskfiles/tasks/helm.yml
+      - name: chart_releaser
         uses: helm/chart-releaser-action@v1.6.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
