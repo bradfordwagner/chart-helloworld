@@ -26,5 +26,7 @@ jobs:
         run: task -t ./taskfiles/tasks/helm.yml
       - name: chart_releaser
         uses: helm/chart-releaser-action@v1.6.0
+        with:
+          charts_dir: .
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
