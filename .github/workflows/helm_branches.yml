@@ -3,7 +3,7 @@ on:
   - push
   - workflow_dispatch
 jobs:
-  helm-branches:
+  helm_branches:
     runs-on: ubuntu-latest
     steps:
       - name: checkout=self
