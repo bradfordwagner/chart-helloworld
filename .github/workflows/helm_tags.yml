@@ -24,6 +24,10 @@ jobs:
            version: 'v3.14.3'
       - name: task=tags
         run: task -t ./taskfiles/tasks/helm.yml
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - name: chart_releaser
         uses: helm/chart-releaser-action@v1.6.0
         with:
