@@ -2,17 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "fullname" . }}
-  labels:
-    {{- include "labels" . | nindent 4 }}
+  labels: {{- include "labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
-    matchLabels:
-      {{- include "selector_labels" . | nindent 6 }}
+    matchLabels: {{- include "selector_labels" . | nindent 6 }}
   template:
     metadata:
-      labels:
-        {{- include "selector_labels" . | nindent 8 }}
+      labels: {{- include "selector_labels" . | nindent 8 }}
     spec:
       containers:
         - name: main
